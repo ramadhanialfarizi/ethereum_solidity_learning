@@ -1,0 +1,525 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "plantId",
+						"type": "uint256"
+					}
+				],
+				"name": "PlantDied",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "plantId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "reward",
+						"type": "uint256"
+					}
+				],
+				"name": "PlantHarvested",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "plantId",
+						"type": "uint256"
+					}
+				],
+				"name": "PlantSeeded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "plantId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "newWaterLevel",
+						"type": "uint8"
+					}
+				],
+				"name": "PlantWatered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "plantId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum EasyLiskGarden.GrowthStage",
+						"name": "newStage",
+						"type": "uint8"
+					}
+				],
+				"name": "StageAdvanced",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "HARVEST_REWARD",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PLANT_PRICE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "STAGE_DURATION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "WATER_DEPLETION_RATE",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "WATER_DEPlESION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "plantId",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateWaterLevel",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "plantId",
+						"type": "uint256"
+					}
+				],
+				"name": "getPlant",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "owner",
+								"type": "address"
+							},
+							{
+								"internalType": "enum EasyLiskGarden.GrowthStage",
+								"name": "growthStage",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "plantedDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "lastWatered",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "waterLevel",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "exists",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isDead",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct EasyLiskGarden.Plant",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserPlants",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "plantId",
+						"type": "uint256"
+					}
+				],
+				"name": "harvestPlant",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myPlant",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "enum EasyLiskGarden.GrowthStage",
+						"name": "growthStage",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "plantedDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastWatered",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "waterLevel",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "exists",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isDead",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "plantCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "plantSeed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "plants",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "enum EasyLiskGarden.GrowthStage",
+						"name": "growthStage",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "plantedDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastWatered",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "waterLevel",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "exists",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isDead",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "plantId",
+						"type": "uint256"
+					}
+				],
+				"name": "updatePlantStage",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "userPlants",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "plantId",
+						"type": "uint256"
+					}
+				],
+				"name": "waterPlant",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/EasyLiskGarden.sol": "EasyLiskGarden"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/EasyLiskGarden.sol": {
+			"keccak256": "0x99f707968cb21a7e149762158ab1e2e029e0ef726779a0981e6c2b9e4cd8b0b4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://708efeca5cbf3d2483b300e06e4eb248d6722ae260eeaac460ad58841781f797",
+				"dweb:/ipfs/QmPebkU696FAMnkm3Assa68Xfdfx93hebK7rjH6dWehhKd"
+			]
+		}
+	},
+	"version": 1
+}

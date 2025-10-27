@@ -1,0 +1,77 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_newName",
+						"type": "string"
+					}
+				],
+				"name": "changeName",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "plantName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/LearnString.sol": "LearnString"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/LearnString.sol": {
+			"keccak256": "0x891851adacf124854cd0da085df914473d9d23bdf7a15758a4e80f51f5889894",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://93b8df2b55ddc8b35da9c88e039ccbbc5fec59f6f2fa7f5ff6f57e0d44665e75",
+				"dweb:/ipfs/QmUuWYNxAZKPgkEToFuTx6VqmfYheHvhxae8bfvDvQBGXS"
+			]
+		}
+	},
+	"version": 1
+}
